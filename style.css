@@ -1,0 +1,138 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px; 
+}
+
+.gender-option {
+    margin-right: 20px;
+}
+
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-check-input {
+    margin-right: 5px;
+}
+
+.form-check-label{
+    margin-left: 15px;
+    font-weight: 300;
+}
+
+.transparent-bg{
+    background-color: transparent !important;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.invalid-feedback {
+    color: #dc3545;
+    margin-top: 5px;
+}
+
+.error-message {
+    color: #dc3545;
+    margin-top: 5px;
+}
+
+#searchoptions {
+    display: none;
+}
+
+/* Style for the icon bar */
+.icon-bar {
+    position: relative;
+}
+
+.icon-bar a {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.icon-bar select {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    width: 100%;
+}
+
+.eye {
+    position: relative;
+}
+
+#password {
+    padding-right: 30px; /* Adjust this value based on the eye icon's width */
+}
+
+.eye-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Adjust this value based on your desired position */
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.greenbox{
+    border: 2px solid #00CC00 !important;
+    box-shadow: 0 0 10px rgba(52, 207, 5, 0.5);
+}
+.redbox{
+    border: 2px solid #eb4646 !important;
+    box-shadow: 0 0 10px rgba(230, 113, 113, 0.5);
+}
+.file-input-container {
+    position: relative;
+}
+
+.clear-file-button {
+    position: absolute;
+    top: 47%;
+    right: 25px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: black;
+}

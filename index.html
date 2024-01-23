@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+
+    
+</head>
+<body>
+    <div class="container" >
+        <div class="row mb-3">
+            <div class="col-md-6" id="Registerdiv">
+                <h2>Registration Form</h2>
+            </div>
+            <div class="col-md-6">
+                <div class="row mb-6">
+                    <div class="col-md-12">
+                        <div class="input-group">
+                            <input type="search" class="form-control rounded" 
+                            id="searchInput" placeholder="Search" aria-label="Search" oninput="searchData()"aria-describedby="search-addon" />
+                            <!-- <button type="button" class="btn btn-outline-primary"  oncl="searchData()" data-mdb-ripple-init >search</button> -->
+
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+          
+        <div class="row " id="existingContent">
+            <div class="col-md-12">
+        <form id="registrationform" onsubmit="return validateForm()" >
+            
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="validationDefault01">Name</label>
+                    <input type="text" class="form-control" id="validationDefault01" placeholder="Your Name" required oninput="validateName()">
+                    <div id="nameValidationMessage" class="text-danger"></div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="abc@yahoo.com" required oninput="validateEmail()">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    <div id="emailValidationMessage" class="text-danger"></div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="phone_no">Phone Number</label>
+                    <input type="text" name="num" data-validation="number" data-validation-allowing="negative,number" input name="color" data-validation="number" datavalidation-ignore="$" required="required" class="form-control" id="phone_no" placeholder="Phone Number" oninput="validatePhoneNumber()">
+                    <div id="phoneValidationMessage" class="text-danger"></div>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="dob">Date Of Birth</label>
+                    <br>
+                    <input id="dob" type="date" required style="width: 150px; height: 36px;" oninput="validateYear()">
+                    <div class="error-message" id="dob-error-message"></div>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="selectgender">Gender</label>
+                    <select class="custom-select" id="selectgender" required>
+                        <option selected>Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="others">Others</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="validationCustom02">Occupation</label>
+                    <input type="text" class="form-control" id="validationCustom02" placeholder="Ex: Engineer">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="select">Education</label>
+                    <select class="custom-select" id="select" required>
+                        <option selected>Open this select menu</option>
+                        <option value="B.E">B.E</option>
+                        <option value="BSc">BSc</option>
+                        <option value="MSc">MSc</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="validationCustomUsername">Username</label>
+                <div class="input-group has-validation">
+                    
+                    <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required oninput="validateUserName() ">
+                    
+                    <!-- <div class="invalid-feedback">Please choose a username.</div> -->
+                </div>
+                <div id="usernameError"></div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="panNumber">PAN Number</label>
+                <input type="text" class="form-control" id="panNumber" placeholder="Enter PAN Number" required oninput="validatePAN()">
+                <small id="panNumberHelp" class="form-text text-muted">Enter a valid PAN Number (e.g., ABCDE1234F).</small>
+                <!-- <div class="invalid-feedback" id="panNumberError">Invalid PAN Number.</div> -->
+            </div>
+        </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="password">Password</label>
+                    <div class="eye">
+                        <input type="password" class="form-control" id="password" placeholder="Enter password" required oninput="validatePassword()">
+                        <i class="fas fa-eye eye-icon" id="togglePassword" onclick="togglePasswordVisibility()"></i>
+                    </div>
+                    <small id="passwordHelp" class="form-text text-muted">Password must be at least 8 characters long with 1 uppercase letter and 1 special character.</small>
+                </div>
+                
+                <div class="form-group col-md-6 file-input-container">
+                    <label for="exampleFormControlFile1">User's Profile</label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1" accept=".png, .jpeg" required onchange="validateFileSize()">
+                    <i class="fas fa-times clear-file-button" id="clearFileButton" onclick="clearFileInput()"></i>
+                    <div id="fileSizeValidationMessage" class="text-danger"></div>
+                </div>
+            </div>
+            
+            <div>
+                <button type="submit" class="btn btn-primary mt-3  mx-auto d-block col-md-3" >Submit</button>
+            </div>
+            
+        </form>
+    </div>
+</div>
+</div>
+<div id="searchResultsHeading"></div>
+<div id="resultContainer"></div>
+
+
+    <!-- Bootstrap JS and jQuery scripts -->
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
